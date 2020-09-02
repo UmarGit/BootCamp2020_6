@@ -184,7 +184,17 @@ function App() {
           </Paper>
           <div className="outer">
             <div className="outerdeep">
-              <p onClick={event=>{
+              <p onMouseOver={()=>{
+                  if(flag){
+                    handleToggle()
+                    setTimeout(
+                      ()=>{
+                        handleClose()
+                      }, 100000)
+                  }
+                  flag = false
+                }}
+                onClick={event=>{
                 setlaunch('true')
                 playStart()
                 getAnimation().play();
