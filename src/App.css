@@ -69,11 +69,11 @@
   cursor: pointer;
 }
 @keyframes blinkingText{
-  0%{     color: white;    }
-  49%{    color: white; }
+  0%{     color: lightgrey;    }
+  49%{    color: lightgrey; }
   60%{    color: transparent; }
   99%{    color:transparent;  }
-  100%{   color: white;    }
+  100%{   color: lightgrey;    }
 }
 .car{
   position: absolute;
@@ -89,4 +89,13 @@
   position: absolute;
   z-index: -1;
   bottom: 0;
+}
+.wait{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2rem;
 }

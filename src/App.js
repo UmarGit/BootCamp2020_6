@@ -10,7 +10,19 @@ import start from './assets/start.mp3'
 import run from './assets/run.mp3'
 import brake from './assets/brake.mp3'
 import jumpy from './assets/jumpy.mp3'
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { makeStyles } from '@material-ui/core/styles';
 import './App.css';
+
+var flag = true
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}));
 
 function App() {
   const [launch, setlaunch] = useState(null)
@@ -19,6 +31,14 @@ function App() {
   const [right, setright] = useState(null)
   const [down, setdown] = useState(null)
   const [jump, setjump] = useState(null)
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   const [playStart] = useSound(start);
 
@@ -58,7 +78,16 @@ function App() {
 
 
   return (
-      <div className="container" tabIndex="0" onKeyDown={event=>{
+      <div className="container" tabIndex="0" onMouseOver={()=>{
+        if(flag){
+          handleToggle()
+          setTimeout(
+            ()=>{
+              handleClose()
+            }, 100000)
+        }
+        flag = false
+      }} onKeyDown={event=>{
         switch (event.keyCode) {
           case 37:
             stop()
@@ -109,6 +138,25 @@ function App() {
             break;
         }
       }}>
+        <Backdrop className={classes.backdrop} open={open}>
+          <div className="wait">
+            <CircularProgress color="inherit" />
+            <br/>
+            Please Wait To Load Images Correctly For Best User Experience.....
+            <br/>
+            <br/>
+            Tip: You can use Up, Down, Left, Right and SpaceBar Keys.......
+            <br/>
+            <br/>
+            Tip: Please Press One key at a time and not hold them, only just tap.......
+            <br/>
+            <br/>
+            Tip: This app is only for demo purposes only.......
+            <br/>
+            <br/>
+            Tip: Best Regards: UmarGit
+          </div>
+        </Backdrop>
         <NavBar/>
         <div className="hero">
           <Paper elevation={16} className="innerMain">
@@ -142,7 +190,6 @@ function App() {
                 getAnimation().play();
                 event.target.style.display = 'none';
               }}>START{launch}</p>
-
             </div>
           </div>
         </div>
