@@ -84,7 +84,7 @@ function App() {
           setTimeout(
             ()=>{
               handleClose()
-            }, 100000)
+            }, 60000)
         }
         flag = false
       }} onKeyDown={event=>{
@@ -151,7 +151,7 @@ function App() {
             Tip: Please Press One key at a time and not hold them, only just tap.......
             <br/>
             <br/>
-            Tip: This app is only for demo purposes only.......
+            Tip: This app is only for Desktop View only.......
             <br/>
             <br/>
             Tip: Best Regards: UmarGit
@@ -190,7 +190,7 @@ function App() {
                     setTimeout(
                       ()=>{
                         handleClose()
-                      }, 100000)
+                      }, 60000)
                   }
                   flag = false
                 }}
