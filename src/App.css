@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero{
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.controls{
+  height: 50vh;
+  display: flex;
+  width: 16vw;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.innerMain{
+  height: 50vh;
+  width: 96vw;
+  position: fixed;
+  transition: all 1s ease-in-out;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-radius: 10px 30px 30px 30px !important;
+}
+.inner{
+  background-image: url('./assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vh;
+  width: 80vw;
+  transform: scale(6,6);
+  transition: all 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 30px 30px 30px !important;
+}
+.outer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.outerdeep{
+  width: 100%;
+  height: 100vh;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 5rem;
+  transition: all 0.5s ease-in-out;
+}
+.outerdeep > p{
+  font-weight: 900;
+  font-size: 30vw;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  animation:blinkingText 2s infinite;
+}
+.outerdeep > p:hover{
   color: white;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+@keyframes blinkingText{
+  0%{     color: white;    }
+  49%{    color: white; }
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: white;    }
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.car{
+  position: absolute;
+  bottom: 0vw;
+  transform: scale(6,6);
+}
+.roadStrip{
+  border-bottom: 100px solid white;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  height: 100px;
+  width: 5px;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
 }
